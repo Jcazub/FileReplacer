@@ -1,0 +1,58 @@
+
+    logic flows:
+    new file
+        1) place in repo
+            i) rename to 2_{name}_{identifier} (use _base for identifier if none supplied)
+
+        2) delete all files in sub folders prepended with {prepender} (2_ is default)
+
+        3) place new file in all sub folders
+            i) version where sub folders aren't updated?
+
+    use old file
+        1) identify replacement file
+
+        2) delete all files in sub folders prepended with {prepender} (2_ is default)
+
+        3) place new file in all sub folders
+
+    naming conventions:
+
+    command -a new_replacement_file_path* new_file_name* target_dir replace_flag(if exists)
+    command -u file_in_repo_name file_in_repo_idenifier(if not found, use _base)
+    command -s(shows current file being used)
+    command -h or --help (shows options)
+
+    command filename_identifier -a new_replacement_file_path* -t target_dir -f
+    command filename_identifier -u (if _identifier not found, use _base)
+    command -s (display current file being used)
+    command -ls (list the files)
+    command -h or --h (shows options)
+
+    replacement file flow:
+
+    verify a filename was supplied
+    verify the replacement file path is valid
+    verify the target file path is valid
+
+    construct the final file name (2_{supplied_file_name}
+        if a single file name is supplied, append with _base
+    copy from the replacement file location to repo location
+
+    if -f is not supplied:
+        run update files
+
+
+    update file flow:
+
+    verify a filename was supplied
+    verify the target file path is valid
+
+    construct the final file name (2_{supplied_file_name}
+        if a single file name is supplied, append with _base
+
+    delete all 2_ files from the target directories subfolders, excluding repo
+    copy the final_file to each target directory subfolder, excluding repo
+
+    update the config file with the current file in play
+
